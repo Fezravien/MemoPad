@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  MemoPad
-//
-//  Created by 윤재웅 on 2020/11/04.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

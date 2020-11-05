@@ -1,15 +1,11 @@
-//
-//  AppDelegate.swift
-//  MemoPad
-//
-//  Created by 윤재웅 on 2020/11/04.
-//
-
 import UIKit
 import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // 메모 데이터를 저장할 배열 변수
+    var memoList:[MemoData] = []
 
 
 
