@@ -1,38 +1,56 @@
 import UIKit
 
 class MemoListVC: UITableViewController {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    // 화면이 나타날 때마다 호출되는 메소드
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    // 테이블 행의 개수를 정하는 메소드
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return self.appDelegate.memoList.count
     }
 
-    /*
+    
+    // 테이블 행을 구성하는 메소드
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        // memoList 배열 데이터에서 주어진 행에 맞는 데이터를 꺼낸다.
+        let row = self.appDelegate.memoList[indexPath.row]
+        
+        // 이미지 속성이 비어있을 경우 "memoCell", 아니면 "memoCellWithImage"
+        let cellId = row.image == nil ? "memoCell" : "memoCellWithImage"
+        
+        // 재사용 큐로부터 프로토타입 셀의 인스턴스를 전달받은다.
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! MemoCell
+        
+        // memoCell의 내용을 구성
+        cell.subject?.text = row.title
+        cell.contents?.text = row.contents
+        cell.img?.image = row.image
+        
+        // Date 타입의 날짜를 "yyyy-MM-dd HH:mm:ss"
+        let formatter =  DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        cell.regdate.text = formatter.string(from: row.regdata!)
 
         return cell
     }
-    */
+   
+    // 테이블의 특정 행이 선택되었을 때 호출되는 메소드
+    // 선택된 행의 정보는 indexPath
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
