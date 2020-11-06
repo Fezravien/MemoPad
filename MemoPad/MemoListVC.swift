@@ -31,7 +31,9 @@ class MemoListVC: UITableViewController {
         let cellId = row.image == nil ? "memoCell" : "memoCellWithImage"
         
         // 재사용 큐로부터 프로토타입 셀의 인스턴스를 전달받은다.
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as! MemoCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? MemoCell else {
+            return UITableViewCell()
+        }
         
         // memoCell의 내용을 구성
         cell.subject?.text = row.title
