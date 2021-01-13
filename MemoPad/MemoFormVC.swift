@@ -11,8 +11,33 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate,UINavigation
         super.viewDidLoad()
        
         self.contents.delegate = self
-
-        // Do any additional setup after loading the view.
+        
+        // 배경 이미지 설정
+        let bgImage = UIImage(named: "memo-background.png")!
+        self.view.backgroundColor = UIColor(patternImage: bgImage)
+        
+        // 텍스트 뷰의 기본 속성
+        // 색상을 제거할 때 UIColor.clear 속성을 사용
+        self.contents.layer.borderWidth = 0
+        self.contents.layer.borderColor = UIColor.clear.cgColor
+        self.contents.backgroundColor = UIColor.clear
+     
+        // 줄 간격
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 8
+        // NSAttributedString - 문단 스타일 정의
+        // 텍스트 뷰의 줄 간격이 설정
+        self.contents.attributedText = NSAttributedString(string: " ", attributes: [.paragraphStyle: style])
+        self.contents.text = ""
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let bar = self.navigationController?.navigationBar
+        
+        let ts = TimeInterval(0.3)
+        UIView.animate(withDuration: ts){
+            bar?.alpha = (bar?.alpha == 0 ? 1 : 0)
+        }
     }
     
     // 저장 버튼 이벤트 메소드
