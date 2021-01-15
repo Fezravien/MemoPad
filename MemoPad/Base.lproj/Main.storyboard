@@ -173,7 +173,7 @@
         <!--메모 작성-->
         <scene sceneID="h4R-Ud-NZP">
             <objects>
-                <viewController id="6du-uK-KxO" customClass="MemoFormVC" customModule="MemoPad" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemoForm" id="6du-uK-KxO" customClass="MemoFormVC" customModule="MemoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TaN-lj-sid">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
