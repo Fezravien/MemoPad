@@ -11,6 +11,16 @@
 		BA462BED25AEE8F40058D606 /* button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BEA25AEE8F40058D606 /* button-bg.png */; };
 		BA462BEE25AEE8F40058D606 /* memo-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BEB25AEE8F40058D606 /* memo-background@2x.png */; };
 		BA462BEF25AEE8F40058D606 /* warning-icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BEC25AEE8F40058D606 /* warning-icon-60@2x.png */; };
+		BA462C0225AFDB930058D606 /* icon02.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BF625AFDB920058D606 /* icon02.png */; };
+		BA462C0325AFDB930058D606 /* icon03.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BF725AFDB920058D606 /* icon03.png */; };
+		BA462C0525AFDB930058D606 /* account@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BA462BF925AFDB920058D606 /* account@2x.jpg */; };
+		BA462C0625AFDB930058D606 /* icon05.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BFA25AFDB920058D606 /* icon05.png */; };
+		BA462C0725AFDB930058D606 /* icon06.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BFB25AFDB930058D606 /* icon06.png */; };
+		BA462C0925AFDB930058D606 /* profile-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BFD25AFDB930058D606 /* profile-bg.png */; };
+		BA462C0A25AFDB930058D606 /* sidemenu.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BFE25AFDB930058D606 /* sidemenu.png */; };
+		BA462C0C25AFDB930058D606 /* icon04.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462C0025AFDB930058D606 /* icon04.png */; };
+		BA462C0D25AFDB930058D606 /* icon01.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462C0125AFDB930058D606 /* icon01.png */; };
+		BA92B13025B1660600D283D8 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA92B12F25B1660600D283D8 /* SWRevealViewController.m */; };
 		BAB684542552D4FE00BD5AF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB684532552D4FE00BD5AF9 /* AppDelegate.swift */; };
 		BAB684562552D4FE00BD5AF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB684552552D4FE00BD5AF9 /* SceneDelegate.swift */; };
 		BAB6845B2552D4FE00BD5AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAB684592552D4FE00BD5AF9 /* Main.storyboard */; };
@@ -29,6 +39,18 @@
 		BA462BEA25AEE8F40058D606 /* button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-bg.png"; sourceTree = "<group>"; };
 		BA462BEB25AEE8F40058D606 /* memo-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "memo-background@2x.png"; sourceTree = "<group>"; };
 		BA462BEC25AEE8F40058D606 /* warning-icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warning-icon-60@2x.png"; sourceTree = "<group>"; };
+		BA462BF625AFDB920058D606 /* icon02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon02.png; sourceTree = "<group>"; };
+		BA462BF725AFDB920058D606 /* icon03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon03.png; sourceTree = "<group>"; };
+		BA462BF925AFDB920058D606 /* account@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "account@2x.jpg"; sourceTree = "<group>"; };
+		BA462BFA25AFDB920058D606 /* icon05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon05.png; sourceTree = "<group>"; };
+		BA462BFB25AFDB930058D606 /* icon06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon06.png; sourceTree = "<group>"; };
+		BA462BFD25AFDB930058D606 /* profile-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-bg.png"; sourceTree = "<group>"; };
+		BA462BFE25AFDB930058D606 /* sidemenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidemenu.png; sourceTree = "<group>"; };
+		BA462C0025AFDB930058D606 /* icon04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon04.png; sourceTree = "<group>"; };
+		BA462C0125AFDB930058D606 /* icon01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon01.png; sourceTree = "<group>"; };
+		BA92B12C25B165B600D283D8 /* MemoPad-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MemoPad-Bridging-Header.h"; sourceTree = "<group>"; };
+		BA92B12E25B1660600D283D8 /* SWRevealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = Resources/SWRevealViewController.h; sourceTree = "<group>"; };
+		BA92B12F25B1660600D283D8 /* SWRevealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = Resources/SWRevealViewController.m; sourceTree = "<group>"; };
 		BAB684502552D4FE00BD5AF9 /* MemoPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoPad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAB684532552D4FE00BD5AF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAB684552552D4FE00BD5AF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,9 +80,18 @@
 		BA462BE925AEE8DB0058D606 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA462BF925AFDB920058D606 /* account@2x.jpg */,
 				BA462BEA25AEE8F40058D606 /* button-bg.png */,
 				BA462BEB25AEE8F40058D606 /* memo-background@2x.png */,
 				BA462BEC25AEE8F40058D606 /* warning-icon-60@2x.png */,
+				BA462C0125AFDB930058D606 /* icon01.png */,
+				BA462BF625AFDB920058D606 /* icon02.png */,
+				BA462BF725AFDB920058D606 /* icon03.png */,
+				BA462C0025AFDB930058D606 /* icon04.png */,
+				BA462BFA25AFDB920058D606 /* icon05.png */,
+				BA462BFB25AFDB930058D606 /* icon06.png */,
+				BA462BFD25AFDB930058D606 /* profile-bg.png */,
+				BA462BFE25AFDB930058D606 /* sidemenu.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -85,6 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				BA462BE925AEE8DB0058D606 /* Resources */,
+				BA92B12E25B1660600D283D8 /* SWRevealViewController.h */,
+				BA92B12F25B1660600D283D8 /* SWRevealViewController.m */,
+				BA92B12C25B165B600D283D8 /* MemoPad-Bridging-Header.h */,
 				BAB684532552D4FE00BD5AF9 /* AppDelegate.swift */,
 				BA462BE625AEE65A0058D606 /* CSLogButton.swift */,
 				BAB684552552D4FE00BD5AF9 /* SceneDelegate.swift */,
@@ -133,6 +167,7 @@
 				TargetAttributes = {
 					BAB6844F2552D4FE00BD5AF9 = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -159,12 +194,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA462C0725AFDB930058D606 /* icon06.png in Resources */,
 				BA462BEE25AEE8F40058D606 /* memo-background@2x.png in Resources */,
+				BA462C0525AFDB930058D606 /* account@2x.jpg in Resources */,
+				BA462C0625AFDB930058D606 /* icon05.png in Resources */,
+				BA462C0325AFDB930058D606 /* icon03.png in Resources */,
 				BAB684632552D4FF00BD5AF9 /* LaunchScreen.storyboard in Resources */,
 				BAB684602552D4FF00BD5AF9 /* Assets.xcassets in Resources */,
+				BA462C0225AFDB930058D606 /* icon02.png in Resources */,
+				BA462C0C25AFDB930058D606 /* icon04.png in Resources */,
 				BA462BED25AEE8F40058D606 /* button-bg.png in Resources */,
+				BA462C0925AFDB930058D606 /* profile-bg.png in Resources */,
 				BA462BEF25AEE8F40058D606 /* warning-icon-60@2x.png in Resources */,
+				BA462C0A25AFDB930058D606 /* sidemenu.png in Resources */,
 				BAB6845B2552D4FE00BD5AF9 /* Main.storyboard in Resources */,
+				BA462C0D25AFDB930058D606 /* icon01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +226,7 @@
 				BAB684782553F54D00BD5AF9 /* MemoFormVC.swift in Sources */,
 				BAB6847B2553F55D00BD5AF9 /* MemoReadVC.swift in Sources */,
 				BAB684562552D4FE00BD5AF9 /* SceneDelegate.swift in Sources */,
+				BA92B13025B1660600D283D8 /* SWRevealViewController.m in Sources */,
 				BAB6846E2553F4E800BD5AF9 /* MemoListVC.swift in Sources */,
 				BAB6845E2552D4FE00BD5AF9 /* MemoPad.xcdatamodeld in Sources */,
 			);
@@ -330,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MemoPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -338,6 +384,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pazravine.MemoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MemoPad/MemoPad-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -348,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MemoPad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -356,6 +405,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pazravine.MemoPad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MemoPad/MemoPad-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
