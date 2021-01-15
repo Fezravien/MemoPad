@@ -96,6 +96,13 @@ class SideBarVC: UITableViewController {
             let target = self.revealViewController()?.frontViewController as! UINavigationController
             target.pushViewController(uv!, animated: true)
             self.revealViewController()?.revealToggle(self)
+        } else if indexPath.row == 5 { // 계정 관리
+            let uv = self.storyboard?.instantiateViewController(withIdentifier: "_Profile")
+            uv?.modalPresentationStyle = .fullScreen
+            self.present(uv!, animated: true){
+                self.revealViewController()?.revealToggle(self)
+            }
+            
         }
     }
     
