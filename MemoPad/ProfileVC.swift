@@ -19,6 +19,22 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let backBtn = UIBarButtonItem(title: "닫기", style: .plain, target: self, action: #selector(close(_:)))
         
         self.navigationItem.leftBarButtonItem = backBtn
+        self.navigationController?.navigationBar.isHidden = true
+        
+        // 배경 이미지 설정
+        let bg = UIImage(named: "profile-bg")
+        let bgImg = UIImageView(image: bg)
+        
+        bgImg.frame.size = CGSize(width: bgImg.frame.size.width, height: bgImg.frame.size.height)
+        bgImg.center = CGPoint(x: self.view.frame.width / 2, y: 50)
+        
+        bgImg.layer.cornerRadius = bgImg.frame.size.width / 2
+        bgImg.layer.borderWidth = 0
+        bgImg.layer.masksToBounds = true
+        self.view.addSubview(bgImg)
+        
+        self.view.bringSubviewToFront(self.tv)
+        self.view.bringSubviewToFront(self.profileImage)
         
         
         // 프로필 사진에 들어갈 기본 이미지
@@ -27,7 +43,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // 프로필 이미지 처리
         self.profileImage.image = image
         self.profileImage.frame.size = CGSize(width: 100, height: 100)
-        self.profileImage.center = CGPoint(x: self.view.frame.width / 2, y: 160)
+        self.profileImage.center = CGPoint(x: self.view.frame.width / 2, y: 280)
         
         // 프로필 이미지 둥글게 만들기
         self.profileImage.layer.cornerRadius = self.profileImage.frame.width / 2
