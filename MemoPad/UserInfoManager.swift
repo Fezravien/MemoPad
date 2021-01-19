@@ -14,8 +14,9 @@ struct UserInfoKey {
     // 저장에 사용할 키
     static let loginId = "LOGINID"
     static let account = "ACCOUNT"
-    static let name = "NAME"
+    
     static let profile = "PROFILE"
+    static let name = "NAME"
 }
 
 class UserInfoManager {
@@ -44,6 +45,19 @@ class UserInfoManager {
         set(v) {
             let ud = UserDefaults.standard
             ud.set(v, forKey: UserInfoKey.account)
+            ud.synchronize()
+        }
+    }
+    
+    var name:String? {
+        
+        get {
+            return UserDefaults.standard.string(forKey: UserInfoKey.name)
+        }
+        
+        set(v) {
+            let ud = UserDefaults.standard
+            ud.set(v, forKey: UserInfoKey.name)
             ud.synchronize()
         }
     }
@@ -83,7 +97,7 @@ class UserInfoManager {
     
     func login(_ account:String, _ passwd:String) -> Bool {
         
-        if account.isEqual("qweasd@naver.com") && passwd.isEqual("1234") {
+        if account.isEqual("a@naver.com") && passwd.isEqual("1234") {
             let ud = UserDefaults.standard
             ud.set(100, forKey: UserInfoKey.loginId)
             ud.set(account, forKey: UserInfoKey.account)
