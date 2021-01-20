@@ -31,7 +31,7 @@ class TutorialMasterVC: UIViewController, UIPageViewControllerDataSource {
         // 3. 페이지 뷰 컨트롤러의 출력 영역 지정
         self.pageVC.view.frame.origin = CGPoint(x: 0, y: 0)
         self.pageVC.view.frame.size.width = self.view.frame.width
-        self.pageVC.view.frame.size.height = self.view.frame.height - 50 // 페이지 인디케이터, 시작하기 버튼 자리 확보
+        self.pageVC.view.frame.size.height = self.view.frame.height - 60 // 페이지 인디케이터, 시작하기 버튼 자리 확보
         
         // 4. 페이지 뷰 컨트롤러를 마스터 뷰 컨트롤러의 자식 뷰 컨트롤러로 설정
         self.addChild(self.pageVC)
@@ -39,6 +39,14 @@ class TutorialMasterVC: UIViewController, UIPageViewControllerDataSource {
         self.pageVC.didMove(toParent: self)
     }
     
+    // MARK: - "시작하기" 버튼
+    @IBAction func close(_ sender: Any) {
+        let ud = UserDefaults.standard
+        ud.set(true, forKey: UserInfoKey.tutorial)
+        ud.synchronize()
+        
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     // MARK: - 인디케이터
     // 페이지 뷰 컨트롤러가 출력할 페이지의 개수를 알려주는 역할
     func presentationCount(for pageViewController: UIPageViewController) -> Int {

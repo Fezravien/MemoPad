@@ -156,7 +156,6 @@
 				BA92B12C25B165B600D283D8 /* MemoPad-Bridging-Header.h */,
 				BAB684532552D4FE00BD5AF9 /* AppDelegate.swift */,
 				BAB684552552D4FE00BD5AF9 /* SceneDelegate.swift */,
-				BA61171E25B4866B00097AE0 /* UserInfoManager.swift */,
 				BA462BE625AEE65A0058D606 /* CSLogButton.swift */,
 				BAB684802553F64200BD5AF9 /* MemoData.swift */,
 				BAB6847D2553F5AF00BD5AF9 /* MemoCell.swift */,
@@ -168,6 +167,7 @@
 				BAB6845F2552D4FF00BD5AF9 /* Assets.xcassets */,
 				BAB684642552D4FF00BD5AF9 /* Info.plist */,
 				BAB6845C2552D4FE00BD5AF9 /* MemoPad.xcdatamodeld */,
+				BA61171E25B4866B00097AE0 /* UserInfoManager.swift */,
 				BA4E12B525B85AF6009311E4 /* Utils.swift */,
 			);
 			path = MemoPad;

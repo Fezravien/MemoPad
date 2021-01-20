@@ -17,19 +17,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fm-TM-ump">
-                                <rect key="frame" x="167" y="808" width="80" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="djR-bZ-WYA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="18"/>
+                                <rect key="frame" x="181" y="831" width="52" height="31"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <state key="normal" title="시작하기"/>
+                                <connections>
+                                    <action selector="close:" destination="fQM-cC-C6I" eventType="touchUpInside" id="yNC-95-yCX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zko-k6-rCh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1Fm-TM-ump" firstAttribute="centerX" secondItem="zko-k6-rCh" secondAttribute="centerX" id="0AR-8c-xpn"/>
-                            <constraint firstItem="zko-k6-rCh" firstAttribute="bottom" secondItem="1Fm-TM-ump" secondAttribute="bottom" constant="20" id="RS3-fX-iuQ"/>
+                            <constraint firstItem="zko-k6-rCh" firstAttribute="bottom" secondItem="1Fm-TM-ump" secondAttribute="bottom" id="NVP-Zy-IJk"/>
+                            <constraint firstItem="1Fm-TM-ump" firstAttribute="centerX" secondItem="zko-k6-rCh" secondAttribute="centerX" id="VKX-Ni-gYt"/>
                         </constraints>
                     </view>
                 </viewController>
