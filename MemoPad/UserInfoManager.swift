@@ -14,10 +14,10 @@ struct UserInfoKey {
     // 저장에 사용할 키
     static let loginId = "LOGINID"
     static let account = "ACCOUNT"
-    
-    static let profile = "PROFILE"
     static let name = "NAME"
-}
+    static let profile = "PROFILE"
+    static let tutorial = "TUTORIAL"
+    }
 
 class UserInfoManager {
     
