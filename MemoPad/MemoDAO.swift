@@ -23,7 +23,7 @@ class MemoDAO {
         let fetchRequest:NSFetchRequest<MemoMO> = MemoMO.fetchRequest()
         
         // 최신 글 순으로 정렬하도록 정렬 객체 생성
-        let regdateDesc = NSSortDescriptor(key: "regdaate", ascending: false)
+        let regdateDesc = NSSortDescriptor(key: "regdate", ascending: false)
         fetchRequest.sortDescriptors = [regdateDesc]
         
         do {

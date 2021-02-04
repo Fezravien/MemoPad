@@ -3,6 +3,8 @@ import UIKit
 class MemoFormVC: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextViewDelegate {
     // 직접 제목을 입력받지 않고, 내용의 첫 줄을 추출하여 제목으로 지정할 변수
     var subject: String!
+    
+    lazy var dao = MemoDAO()
 
     @IBOutlet weak var contents: UITextView!
     @IBOutlet weak var preview: UIImageView!
@@ -71,9 +73,12 @@ class MemoFormVC: UIViewController, UIImagePickerControllerDelegate,UINavigation
         data.image = self.preview.image // 이미지
         data.regdata = Date() // 작성 시각
         
-        // 앱 델리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memoList.append(data)
+//        // 앱 델리게이트 객체를 읽어온 다음, memolist 배열에 MemoData 객체를 추가
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.memoList.append(data)
+//        
+        // 코어 데이터에 메모 데이터를 추가한다.
+        self.dao.insert(data)
         
         // 작성폼 화면을 종료하고, 이전 화면으로
         _ = self.navigationController?.popViewController(animated: true)
