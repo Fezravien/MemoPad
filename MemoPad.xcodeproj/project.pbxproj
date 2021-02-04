@@ -21,6 +21,7 @@
 		BA462C0A25AFDB930058D606 /* sidemenu.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462BFE25AFDB930058D606 /* sidemenu.png */; };
 		BA462C0C25AFDB930058D606 /* icon04.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462C0025AFDB930058D606 /* icon04.png */; };
 		BA462C0D25AFDB930058D606 /* icon01.png in Resources */ = {isa = PBXBuildFile; fileRef = BA462C0125AFDB930058D606 /* icon01.png */; };
+		BA4C0C7225CAC07D005A2642 /* MemoDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C0C7125CAC07D005A2642 /* MemoDAO.swift */; };
 		BA4E12AC25B85285009311E4 /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA4E12AB25B85285009311E4 /* Tutorial.storyboard */; };
 		BA4E12B625B85AF6009311E4 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4E12B525B85AF6009311E4 /* Utils.swift */; };
 		BA4E12B925B85C25009311E4 /* TutorialContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4E12B825B85C25009311E4 /* TutorialContentsVC.swift */; };
@@ -56,6 +57,7 @@
 		BA462BFE25AFDB930058D606 /* sidemenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sidemenu.png; sourceTree = "<group>"; };
 		BA462C0025AFDB930058D606 /* icon04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon04.png; sourceTree = "<group>"; };
 		BA462C0125AFDB930058D606 /* icon01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon01.png; sourceTree = "<group>"; };
+		BA4C0C7125CAC07D005A2642 /* MemoDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDAO.swift; sourceTree = "<group>"; };
 		BA4E12AB25B85285009311E4 /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		BA4E12B525B85AF6009311E4 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		BA4E12B825B85C25009311E4 /* TutorialContentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialContentsVC.swift; sourceTree = "<group>"; };
@@ -160,15 +162,16 @@
 				BAB684802553F64200BD5AF9 /* MemoData.swift */,
 				BAB6847D2553F5AF00BD5AF9 /* MemoCell.swift */,
 				BAB6846D2553F4E800BD5AF9 /* MemoListVC.swift */,
-				BA61171725B1680A00097AE0 /* SideBarVC.swift */,
-				BA61171A25B1E53600097AE0 /* ProfileVC.swift */,
 				BAB684772553F54D00BD5AF9 /* MemoFormVC.swift */,
 				BAB6847A2553F55D00BD5AF9 /* MemoReadVC.swift */,
+				BA61171725B1680A00097AE0 /* SideBarVC.swift */,
+				BA61171A25B1E53600097AE0 /* ProfileVC.swift */,
 				BAB6845F2552D4FF00BD5AF9 /* Assets.xcassets */,
 				BAB684642552D4FF00BD5AF9 /* Info.plist */,
-				BAB6845C2552D4FE00BD5AF9 /* MemoPad.xcdatamodeld */,
 				BA61171E25B4866B00097AE0 /* UserInfoManager.swift */,
 				BA4E12B525B85AF6009311E4 /* Utils.swift */,
+				BAB6845C2552D4FE00BD5AF9 /* MemoPad.xcdatamodeld */,
+				BA4C0C7125CAC07D005A2642 /* MemoDAO.swift */,
 			);
 			path = MemoPad;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				BAB6847B2553F55D00BD5AF9 /* MemoReadVC.swift in Sources */,
 				BAB684562552D4FE00BD5AF9 /* SceneDelegate.swift in Sources */,
 				BA40331525B86E880064F9E1 /* TutorialMasterVC.swift in Sources */,
+				BA4C0C7225CAC07D005A2642 /* MemoDAO.swift in Sources */,
 				BA92B13025B1660600D283D8 /* SWRevealViewController.m in Sources */,
 				BAB6846E2553F4E800BD5AF9 /* MemoListVC.swift in Sources */,
 				BA61171F25B4866B00097AE0 /* UserInfoManager.swift in Sources */,
