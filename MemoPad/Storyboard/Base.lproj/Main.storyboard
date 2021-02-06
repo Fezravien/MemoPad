@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFQ-Qk-11z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hvX-Jj-WM4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -354,6 +354,72 @@
             </objects>
             <point key="canvasLocation" x="-1158" y="260"/>
         </scene>
+        <!--신규 계정 등록-->
+        <scene sceneID="z1z-iR-UeQ">
+            <objects>
+                <viewController id="KiB-Lb-mf4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5p0-ej-Avr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="AyQ-3S-2SY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="신규 계정 등록" id="Div-ym-K7q">
+                        <barButtonItem key="rightBarButtonItem" title="새 계정" id="4Ap-TL-DXz">
+                            <connections>
+                                <segue destination="ewV-sU-9ze" kind="show" id="7FI-Zn-gXc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXU-x3-X0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="685.50724637681162" y="-421.875"/>
+        </scene>
+        <!--JoinVC-->
+        <scene sceneID="Yl6-Ew-Rmo">
+            <objects>
+                <viewController id="ewV-sU-9ze" customClass="JoinVC" customModule="MemoPad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="knh-Ty-fWb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="account" translatesAutoresizingMaskIntoConstraints="NO" id="5W8-rG-xRk">
+                                <rect key="frame" x="10" y="140" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KE3-Kq-fdz">
+                                <rect key="frame" x="120" y="140" width="280" height="160"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="ast-2L-o2T">
+                                        <rect key="frame" x="0.0" y="28" width="280" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ast-2L-o2T" id="if1-ex-wQH">
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="55Y-8y-NnH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4DY-YB-Bpn">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="b2Y-Fz-9VR"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profile" destination="5W8-rG-xRk" id="f7m-X8-r7Y"/>
+                        <outlet property="submit" destination="b2Y-Fz-9VR" id="s1Y-mw-neZ"/>
+                        <outlet property="tableView" destination="KE3-Kq-fdz" id="STE-mN-dAU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Fs-Ne-HKJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616" y="-423"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="srY-6O-9li">
             <objects>
@@ -388,8 +454,27 @@
             </objects>
             <point key="canvasLocation" x="1616" y="1035"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="m1J-fz-n5i">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hvX-Jj-WM4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fiY-uv-8gS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KiB-Lb-mf4" kind="relationship" relationship="rootViewController" id="OeP-Hz-1ZJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lp5-hk-pOx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226.08695652173915" y="-422.54464285714283"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="account" width="60" height="60"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
