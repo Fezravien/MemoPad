@@ -171,10 +171,10 @@
 				BA4C0C8525CEA430005A2642 /* JoinVC.swift */,
 				BAB6845F2552D4FF00BD5AF9 /* Assets.xcassets */,
 				BAB684642552D4FF00BD5AF9 /* Info.plist */,
+				BA4C0C7125CAC07D005A2642 /* MemoDAO.swift */,
 				BA61171E25B4866B00097AE0 /* UserInfoManager.swift */,
 				BA4E12B525B85AF6009311E4 /* Utils.swift */,
 				BAB6845C2552D4FE00BD5AF9 /* MemoPad.xcdatamodeld */,
-				BA4C0C7125CAC07D005A2642 /* MemoDAO.swift */,
 			);
 			path = MemoPad;
 			sourceTree = "<group>";
