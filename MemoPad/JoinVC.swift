@@ -12,7 +12,44 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
     
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var submit: UIBarButtonItem!
+
+    @IBAction func submit(_ sender: Any) {
+        // 전달할 값 준비
+        // 이미지를 Base64 인코딩 처리
+        let profile = self.profile.image!.pngData()?.base64EncodedString()
+        
+        // 전달값을 Parameters 타입의 객체로 정의 [String: Any]
+        let param: Parameters = [
+            "account" : self.fieldAccount.text!,
+            "passwd" : self.fieldPassword.text!,
+            "name" : self.fieldName.text!,
+            "profile_image" : profile!
+        ]
+        
+        // API 호출
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/join"
+        let call = AF.request(url, method: HTTPMethod.post, parameters: param, encoding: JSONEncoding.default)
+        
+        // 서버 응답값 처리
+        call.responseJSON { (res) in
+            
+            // JSON 형식으로 값이 제대로 전달되었는지 확인
+            guard let jsonObject = try! res.result.get() as? [String: Any] else {
+                self.alert("서버 호출 과정에서 오류가 발생했습니다.")
+                return
+            }
+            
+            // 응답 코드 확인. 0이면 성공
+            let resultCode = jsonObject["result_code"] as! Int
+            if resultCode == 0 {
+                self.alert("가입이 완료되었습니다.")
+                
+            } else { // 응답코드가 0이 아닐 때. 실패
+                let errorMsg = jsonObject["error_msg"] as! String
+                self.alert("오류발생: \(errorMsg)")
+            }
+        }
+    }
     
     // 테이블 뷰에 들어갈 텍스트 필드들
     var fieldAccount: UITextField! // 계정

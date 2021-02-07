@@ -408,11 +408,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="4DY-YB-Bpn">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="b2Y-Fz-9VR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="b2Y-Fz-9VR">
+                            <connections>
+                                <action selector="submit:" destination="ewV-sU-9ze" id="kkp-l0-9bI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="profile" destination="5W8-rG-xRk" id="f7m-X8-r7Y"/>
-                        <outlet property="submit" destination="b2Y-Fz-9VR" id="s1Y-mw-neZ"/>
                         <outlet property="tableView" destination="KE3-Kq-fdz" id="STE-mN-dAU"/>
                     </connections>
                 </viewController>
