@@ -10,10 +10,25 @@ import Alamofire
 
 class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    // API 호출 상태값을 관리할 변수
+    var isCalling = false
+    
     @IBOutlet weak var profile: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
+    
     @IBAction func submit(_ sender: Any) {
+        
+        if self.isCalling {
+            self.alert("진행 중입니다. 잠시만 기다려주세요.")
+            return
+        } else {
+            self.isCalling = true
+        }
+        
+        // 인디케이터 뷰 애니메이션 시작
+        self.indicatorView.startAnimating()
+        
         // 전달할 값 준비
         // 이미지를 Base64 인코딩 처리
         let profile = self.profile.image!.pngData()?.base64EncodedString()
@@ -33,6 +48,9 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
         // 서버 응답값 처리
         call.responseJSON { (res) in
             
+            // 인디케이터 뷰 애니메이션 종료
+            self.indicatorView.stopAnimating()
+            
             // JSON 형식으로 값이 제대로 전달되었는지 확인
             guard let jsonObject = try! res.result.get() as? [String: Any] else {
                 self.alert("서버 호출 과정에서 오류가 발생했습니다.")
@@ -42,10 +60,14 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
             // 응답 코드 확인. 0이면 성공
             let resultCode = jsonObject["result_code"] as! Int
             if resultCode == 0 {
-                self.alert("가입이 완료되었습니다.")
+                self.alert("가입이 완료되었습니다.") {
+                self.performSegue(withIdentifier: "backProfileVC", sender: self)
+                }
                 
             } else { // 응답코드가 0이 아닐 때. 실패
                 let errorMsg = jsonObject["error_msg"] as! String
+                // 사용자가 다시 계정을 등록할 수 있도록 해줘야함
+                self.isCalling = false
                 self.alert("오류발생: \(errorMsg)")
             }
         }
@@ -70,6 +92,7 @@ class JoinVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UINa
         // 프로필 이미지에 탭 제스터 및 액션 이벤트 설정
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfile(_:)))
         self.profile.addGestureRecognizer(gesture)
+        self.view.bringSubviewToFront(self.indicatorView) // 인디케이터 뷰를 화면 맨 앞으로
         
     }
     
