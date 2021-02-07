@@ -14,6 +14,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     let uinfo = UserInfoManager() // 개인 정보 관리 매니저
     
+    // MARK: - View life Cycle
     override func viewDidLoad() {
         self.navigationItem.title = "프로필"
         
@@ -75,6 +76,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         self.profileImage.isUserInteractionEnabled = true
     }
     
+    // MARK: - Action
     // 로그인 창 표시
     @objc func doLogin(_ sender:Any) {
         
@@ -206,6 +208,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         v.addSubview(btn)
     }
     
+    // MARK: - PickerVIew
     func imgPicker(_ source: UIImagePickerController.SourceType) {
         
         let picker = UIImagePickerController()
@@ -230,6 +233,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         picker.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
@@ -264,6 +268,12 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             // 로그인되어 있지 않다면 로그인 창을 띄워 준다.
             self.doLogin(self.tv)
         }
+    }
+    
+    // Unwind
+    @IBAction func backProfileVC(_ segue: UIStoryboardSegue) {
+        // 프로필 화면으로 되돌아오기 위한 표식 역할
+        // 아무 내용도 작성하지 않음
     }
     
      
