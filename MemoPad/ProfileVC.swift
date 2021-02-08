@@ -14,15 +14,21 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     
     let uinfo = UserInfoManager() // 개인 정보 관리 매니저
     
+    // API 호출 상태값을 관리할 변수
+    var isCalling = false
+    
+    @IBOutlet weak var indicatiorView: UIActivityIndicatorView!
+    
     // MARK: - View life Cycle
     override func viewDidLoad() {
         self.navigationItem.title = "프로필"
         
         // 뒤로 가기 버튼 처리
         let backBtn = UIBarButtonItem(title: "닫기", style: .plain, target: self, action: #selector(close(_:)))
+        backBtn.tintColor = .black
         
         self.navigationItem.leftBarButtonItem = backBtn
-        self.navigationController?.navigationBar.isHidden = true
+        //self.navigationController?.navigationBar.isHidden = true
         
         // 배경 이미지 설정
         let bg = UIImage(named: "profile-bg")
@@ -74,11 +80,21 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         // 객체가 사용자와 상호반을할 수 있도록 허락
         // UIControl을 상속받지 않은 객체는 기본적으로 사용자와 반응하지 않도록 하기 위해 .isUserInteractionEnabled 속성의 값이 false로 설정
         self.profileImage.isUserInteractionEnabled = true
+        
+        // 인디케이터 뷰를 화면 맨 앞으로
+        self.view.bringSubviewToFront(self.indicatiorView)
     }
     
     // MARK: - Action
     // 로그인 창 표시
     @objc func doLogin(_ sender:Any) {
+        
+        if self.isCalling == true {
+            self.alert("응답을 기다리는 중입니다. \n잠시만 기다려 주세요.")
+            return
+        } else {
+            self.isCalling = true
+        }
         
         let loginAlert = UIAlertController(title: "LOGIN", message: nil, preferredStyle: .alert)
         
@@ -92,24 +108,38 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
             $0.isSecureTextEntry = true
         }
         
-        loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        loginAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel){ _ in
+            self.isCalling = false
+        })
         loginAlert.addAction(UIAlertAction(title: "Login", style: .destructive){ _ in
+            
+            // 인디케이터 실행
+            self.indicatiorView.startAnimating()
+            
             let account = loginAlert.textFields?[0].text ?? "" // 첫 번째 필드 : 계정
             let passwd = loginAlert.textFields?[1].text ?? "" // 두 번째 필드 : 비밀번호
             
-            if self.uinfo.login(account, passwd){ // 로그인 성공
+            // 비동기 방식으로 변경되는 부분
+            self.uinfo.login(account: account, passwd: passwd, success: {
+                
+                // 인디케이터 종료
+                self.indicatiorView.stopAnimating()
+                self.isCalling = false
+                
+                // UI 갱신
                 self.tv.reloadData() // 테이블 뷰를 갱신한다.
                 self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
                 self.drawBtn()
+            }, fail: {msg in
+                // 인디케이터 종료
+                self.indicatiorView.stopAnimating()
+                self.isCalling = false
                 
-            } else { // 로그인 실패
-                let msg = "로그인에 실패하였습니다."
-                let alert = UIAlertController(title: nil, message: msg, preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                self.present(alert, animated: false)
-            }
+                self.alert(msg)
+            })
+            
         })
+        
         self.present(loginAlert, animated: false)
   
     }

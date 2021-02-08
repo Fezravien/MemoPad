@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 // 사용자 정보를 원할하게 다루기 위한 전담 관리 전용 객체
 // 사용자가 설정한 개인 정보를 UserDefault 객체에 저장하고, 필요할 떄 이를 꺼내 주는 역할 을 담당
@@ -95,19 +96,70 @@ class UserInfoManager {
     }
     
     
-    func login(_ account:String, _ passwd:String) -> Bool {
+//    func login(_ account:String, _ passwd:String) -> Bool {
+//
+//        if account.isEqual("a@naver.com") && passwd.isEqual("1234") {
+//            let ud = UserDefaults.standard
+//            ud.set(100, forKey: UserInfoKey.loginId)
+//            ud.set(account, forKey: UserInfoKey.account)
+//            ud.set("윤재웅", forKey: UserInfoKey.name)
+//
+//            ud.synchronize()
+//            return true
+//        } else {
+//            return false
+//        }
+//    }
+    
+    func login(account: String, passwd: String, success: (()->Void)? = nil, fail: ((String)->Void)? = nil) {
         
-        if account.isEqual("a@naver.com") && passwd.isEqual("1234") {
-            let ud = UserDefaults.standard
-            ud.set(100, forKey: UserInfoKey.loginId)
-            ud.set(account, forKey: UserInfoKey.account)
-            ud.set("윤재웅", forKey: UserInfoKey.name)
+        // URL과 전송할 값 준비
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/login"
+        let param: Parameters = [
+            "account": account,
+            "passwd": passwd
+        ]
+        
+        // API 호출
+        let call = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default)
+        
+        // API 호출 결과 처리
+        call.responseJSON { (res) in
             
-            ud.synchronize()
-            return true
-        } else {
-            return false
+            // JSON 형식으로 응답했는지 확인
+            let result = try! res.result.get()
+            guard let jsonObject = result as? NSDictionary else {
+                fail?("잘못된 응답 형식입니다. \(result)")
+                return
+            }
+            
+            // 응답 코드 확인. 0이면 성공
+            let resultCode = jsonObject["result_code"] as! Int
+            if resultCode == 0 { // 로그인 성공
+                
+                // user_info 이하 항목을 딕셔너리 형태로 추출하여 저장
+                let user = jsonObject["user_info"] as! NSDictionary
+                
+                self.loginId = user["user_id"] as! Int
+                self.account = user["account"] as? String
+                self.name = user["name"] as? String
+                
+                // user_info 항목 중에서 프로필 이미지 처리
+                if let path = user["profile_path"] as? String {
+                    if let imageData = try? Data(contentsOf: URL(string: path)!) {
+                        self.profile = UIImage(data: imageData)
+                    }
+                }
+                
+                // 인자값으로 입력된 success 클로저 블록을 실행한다.
+                success?()
+                
+            } else {
+                let msg = (jsonObject["error_msg"] as? String) ?? "로그인이 실패했습니다."
+                fail?(msg)
+            }
         }
+        
     }
     
     func logout() -> Bool {
