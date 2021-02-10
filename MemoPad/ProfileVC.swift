@@ -152,7 +152,14 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         
         alert.addAction(UIAlertAction(title: "취소", style: .cancel))
         alert.addAction(UIAlertAction(title: "확인", style: .destructive){_ in
-            if self.uinfo.logout() {
+            
+            // 인디케이터 실행
+            self.indicatiorView.startAnimating()
+            
+             self.uinfo.logout() {
+                // Logout API 호출과 logout() 실행이 모두 끝나면 인디케이터도 중지
+                self.indicatiorView.stopAnimating()
+                
                 self.tv.reloadData() // 테이블 뷰를 갱신한다.
                 self.profileImage.image = self.uinfo.profile // 이미지 프로필을 갱신한다.
                 self.drawBtn()
