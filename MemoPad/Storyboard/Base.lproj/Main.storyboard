@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hvX-Jj-WM4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFQ-Qk-11z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -319,22 +319,6 @@
             </objects>
             <point key="canvasLocation" x="664" y="1035"/>
         </scene>
-        <!--ProfileVC-->
-        <scene sceneID="bvk-rY-AAe">
-            <objects>
-                <viewController id="8U4-sE-Thc" customClass="ProfileVC" customModule="MemoPad" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i7d-P9-Mlh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="SHk-ur-vzk"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Mgb-iG-eTJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QXY-xZ-H2v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2497" y="1035"/>
-        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="SfY-m5-XaL">
             <objects>
@@ -354,27 +338,38 @@
             </objects>
             <point key="canvasLocation" x="-1158" y="260"/>
         </scene>
-        <!--View Controller-->
+        <!--ProfileVC-->
         <scene sceneID="z1z-iR-UeQ">
             <objects>
-                <viewController id="KiB-Lb-mf4" sceneMemberID="viewController">
+                <viewController id="KiB-Lb-mf4" customClass="ProfileVC" customModule="MemoPad" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5p0-ej-Avr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="a58-ny-uKf">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="AyQ-3S-2SY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Div-ym-K7q">
                         <barButtonItem key="rightBarButtonItem" title="새 계정" id="4Ap-TL-DXz">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="ewV-sU-9ze" kind="show" id="7FI-Zn-gXc"/>
+                                <segue destination="ewV-sU-9ze" kind="show" id="xah-h3-z4b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="indicatiorView" destination="a58-ny-uKf" id="8bz-lt-Zxg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXU-x3-X0z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="685.50724637681162" y="-421.875"/>
+            <point key="canvasLocation" x="2559" y="1035"/>
         </scene>
         <!--신규 계정 등록-->
         <scene sceneID="Yl6-Ew-Rmo">
@@ -428,7 +423,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Fs-Ne-HKJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="pXH-0i-awA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="-423"/>
+            <point key="canvasLocation" x="3436" y="1035"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="srY-6O-9li">
@@ -447,27 +442,9 @@
             <point key="canvasLocation" x="-224" y="262"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="dhe-Ao-sUK">
-            <objects>
-                <navigationController storyboardIdentifier="_Profile" automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnTap="YES" hidesBarsWhenKeyboardAppears="YES" hidesBarsWhenVerticallyCompact="YES" id="9HF-ab-YbH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="eOF-BF-oAo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="8U4-sE-Thc" kind="relationship" relationship="rootViewController" id="9wh-fw-lnc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eGJ-GG-EEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1616" y="1035"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="m1J-fz-n5i">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hvX-Jj-WM4" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="_Profile" automaticallyAdjustsScrollViewInsets="NO" id="hvX-Jj-WM4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fiY-uv-8gS">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -480,7 +457,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lp5-hk-pOx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-226.08695652173915" y="-422.54464285714283"/>
+            <point key="canvasLocation" x="1616" y="1035"/>
         </scene>
     </scenes>
     <resources>
