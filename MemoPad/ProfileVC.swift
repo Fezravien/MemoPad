@@ -261,13 +261,23 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
     // 이미지를 선택하면 이 메소드가 자동으로 호출
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        // 인디케이터 실행
+        self.indicatiorView.startAnimating()
+        
         if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
-            self.uinfo.profile = img
-            self.profileImage.image = img
+            self.uinfo.newProfile(img, success: {
+                // 인디케이터 종료
+                self.indicatiorView.stopAnimating()
+                self.profileImage.image = img
+            }, fail: { msg in
+                // 인디케이터 종료
+                self.indicatiorView.stopAnimating()
+                self.alert(msg)
+            })
         }
         
         // 이 구문을 누락하면 이미지 피커 컨트롤러 창은 닫히지 않는다.
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true)
     }
     
     // MARK: - TableView Delegate
