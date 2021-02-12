@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import LocalAuthentication
 
 class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
@@ -322,6 +324,57 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         // 프로필 화면으로 되돌아오기 위한 표식 역할
         // 아무 내용도 작성하지 않음
     }
+}
+
+
+extension ProfileVC {
     
-     
+    // 토큰 인증 메소드
+    // 토큰을 체크하고 갱신하는 역할
+    func tokenValidate() {
+        // 응답 캐시를 사용하지 않도록
+        URLCache.shared.removeAllCachedResponses()
+        
+        // 키 체인에 액세스 토큰이 없을 경우 유효성 검증을 진행하지 않음
+        let tk = TokenUtils()
+        guard let header = tk.getAuthorizationHeader() else {
+            return
+        }
+        
+        // 로딩 인디케이터 시작
+        self.indicatiorView.startAnimating()
+        
+        // tokenValidate API를 호출한다.
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/tokenValidate"
+        let validate = AF.request(url, method: .post, encoding: JSONEncoding.default, headers: header)
+        
+        validate.responseJSON { (res) in
+            self.indicatiorView.stopAnimating()
+            
+            let responseBody = try! res.result.get()
+            print(responseBody)
+            guard let jsonObject = responseBody as? NSDictionary else {
+                self.alert("잘못된 응답입니다.")
+                return
+            }
+            
+            // 응답 결과 처리
+            let resultCode = jsonObject["result_code"] as! Int
+            if resultCode != 0 { // 응답 결과가 실패일 떄, 즉 토큰이 만료되었을 떄
+                // 로컬 인증 실행
+                self.touchID()
+                
+            }
+        }
+    }
+    
+    // 터치 아이디 인증 메소드
+    func touchID() {
+        
+    }
+    
+    // 토큰 갱신 메소드
+    func refresh() {
+        
+    }
 }
