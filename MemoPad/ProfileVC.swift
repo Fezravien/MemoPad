@@ -371,10 +371,72 @@ extension ProfileVC {
     // 터치 아이디 인증 메소드
     func touchID() {
         
+        // LAContext 인스턴스 생성
+        let context =  LAContext()
+        
+        // 로컬 인증에 사용할 변수 정의
+        var error: NSError?
+        let msg = "인증이 필요합니다."
+        let deviceAuth = LAPolicy.deviceOwnerAuthenticationWithBiometrics // 인증 정책
+        
+        // 로컬 인증이 사용 가능한지 여부 확인
+        if context.canEvaluatePolicy(deviceAuth, error: &error) {
+            // 터치 아이디 인증창 실행
+            context.evaluatePolicy(deviceAuth, localizedReason: msg) { (success, e) in
+                if success {
+                    // 토큰 갱신 로직
+                    self.refresh()
+                    
+                } else { // 인증 실패
+                    // 인증 실패 원인에 대한 대응 로직
+                    
+                }
+                
+            }
+            
+        } else { // 인증창이 실행되지 못한 경우
+            // 인증창 실행 불가 원인에 대한 대응 로직
+            
+        }
+        
     }
     
     // 토큰 갱신 메소드
     func refresh() {
+        self.indicatiorView.startAnimating() // 로딩 시작
         
+        // dlswmd gpej
+        let tk = TokenUtils()
+        let header = tk.getAuthorizationHeader()
+        
+        // 리프레시 토큰 전달 준비
+        let refreshToken = tk.load("kr.co.rubypaper.MyMemory", account: "refreshToken")
+        let param: Parameters = ["refresh_token" : refreshToken!]
+        
+        // 호출 및 응답
+        let url = "http://swiftapi.rubypaper.co.kr:2029/userAccount/refresh"
+        let refresh = AF.request(url, method: .post, parameters: param, encoding: JSONEncoding.default, headers: header)
+        
+        refresh.responseJSON { (res) in
+            self.indicatiorView.stopAnimating() // 로딩 중지
+            
+            guard let jsonObject = try! res.result.get() as? NSDictionary else {
+                self.alert("잘못된 응답입니다.")
+                return
+            }
+            
+            // 응답 결과 처리
+            let resultCode = jsonObject["result_code"] as! Int
+            if resultCode == 0 { // 성공 : 액세스 토큰이 갱신되었다는 의미
+                // 키 체인에 저장된 액세스 토큰 교체
+                let accessToken = jsonObject["access_token"] as! String
+                tk.save("kr.co.rubypaper.MyMemory", account: "accessToken", value: accessToken)
+                                
+            } else { // 실패 : 액세스 토큰 만료
+                self.alert("인증이 만료되었으므로 다시 로그인해야 합니다.") {
+                    // 로그아웃 처리
+                }
+            }
+        }
     }
 }
