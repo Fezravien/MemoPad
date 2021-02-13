@@ -389,6 +389,27 @@ extension ProfileVC {
                     
                 } else { // 인증 실패
                     // 인증 실패 원인에 대한 대응 로직
+                    print((e?.localizedDescription)!)
+                    
+                    switch (e!._code) {
+                    case LAError.systemCancel.rawValue:
+                        self.alert("시스템에 의해 인증이 취소되었습니다.")
+                        
+                    case LAError.userCancel.rawValue:
+                        self.alert("사용자에 의해 인증이 취소되었습니다.") {
+                            self.commonLogout(true)
+                        }
+                        
+                    case LAError.userFallback.rawValue:
+                        OperationQueue.main.addOperation() {
+                            self.commonLogout(true)
+                        }
+                    
+                    default:
+                        OperationQueue.main.addOperation() {
+                            self.commonLogout(true)
+                        }
+                    }
                     
                 }
                 
@@ -437,6 +458,24 @@ extension ProfileVC {
                     // 로그아웃 처리
                 }
             }
+        }
+    }
+
+    
+    func commonLogout(_ isLogin: Bool = false) {
+        
+        // 저장된 기존 개인 정보 & 키 체인 데이터를 삭제하며 로그아웃 상태로 전환
+        let userInfo = UserInfoManager()
+        userInfo.deviceLogout()
+        
+        // 현재의 화면이 프로필 화면이라면 바로 UI를 갱신한다.
+        self.tv.reloadData()
+        self.profileImage.image = userInfo.profile
+        self.drawBtn()
+        
+        // 기본 로그인 창 실행 여무
+        if isLogin {
+            self.doLogin(self)
         }
     }
 }
