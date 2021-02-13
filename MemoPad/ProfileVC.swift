@@ -87,6 +87,11 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, U
         self.view.bringSubviewToFront(self.indicatiorView)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // 토큰 인증 여부 체크
+        self.tokenValidate()
+    }
+    
     // MARK: - Action
     // 로그인 창 표시
     @objc func doLogin(_ sender:Any) {
@@ -417,6 +422,21 @@ extension ProfileVC {
             
         } else { // 인증창이 실행되지 못한 경우
             // 인증창 실행 불가 원인에 대한 대응 로직
+            print(error!.localizedDescription)
+            
+            switch error!.code {
+            case LAError.biometryNotEnrolled.rawValue:
+                print("터치 아이디가 등록되어 있지 않습니다.")
+                
+            case LAError.passcodeNotSet.rawValue:
+                print("패스 코드가 설정되어 있지 않습니다.")
+                
+            default: // LAError.touchIDNotAvailable 포함
+                print("터치 아이디를 사용할 수 없습니다.")
+                OperationQueue.main.addOperation() {
+                    self.commonLogout(true)
+                }
+            }
             
         }
         
@@ -456,6 +476,9 @@ extension ProfileVC {
             } else { // 실패 : 액세스 토큰 만료
                 self.alert("인증이 만료되었으므로 다시 로그인해야 합니다.") {
                     // 로그아웃 처리
+                    OperationQueue.main.addOperation() {
+                        self.commonLogout(true)
+                    }
                 }
             }
         }
