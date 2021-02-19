@@ -42,6 +42,7 @@
 		BAB6847B2553F55D00BD5AF9 /* MemoReadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6847A2553F55D00BD5AF9 /* MemoReadVC.swift */; };
 		BAB6847E2553F5AF00BD5AF9 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB6847D2553F5AF00BD5AF9 /* MemoCell.swift */; };
 		BAB684812553F64200BD5AF9 /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB684802553F64200BD5AF9 /* MemoData.swift */; };
+		BAE4697325DF999800401DE9 /* DataSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE4697225DF999800401DE9 /* DataSync.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		BAB6847A2553F55D00BD5AF9 /* MemoReadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoReadVC.swift; sourceTree = "<group>"; };
 		BAB6847D2553F5AF00BD5AF9 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		BAB684802553F64200BD5AF9 /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
+		BAE4697225DF999800401DE9 /* DataSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSync.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 				BA61171E25B4866B00097AE0 /* UserInfoManager.swift */,
 				BA4E12B525B85AF6009311E4 /* Utils.swift */,
 				BAB6845C2552D4FE00BD5AF9 /* MemoPad.xcdatamodeld */,
+				BAE4697225DF999800401DE9 /* DataSync.swift */,
 			);
 			path = MemoPad;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA61171B25B1E53600097AE0 /* ProfileVC.swift in Sources */,
+				BAE4697325DF999800401DE9 /* DataSync.swift in Sources */,
 				BA462BE725AEE65A0058D606 /* CSLogButton.swift in Sources */,
 				BA61171825B1680A00097AE0 /* SideBarVC.swift in Sources */,
 				BA4E12B625B85AF6009311E4 /* Utils.swift in Sources */,
